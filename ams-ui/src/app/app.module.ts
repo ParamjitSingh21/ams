@@ -12,13 +12,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule, } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { IndexComponent } from './component/index/index/index.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SideNavComponent,
-    TopNavComponent
+    TopNavComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,8 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

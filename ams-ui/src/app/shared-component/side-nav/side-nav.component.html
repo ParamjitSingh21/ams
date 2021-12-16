@@ -1,3 +1,5 @@
+
+<app-top-nav [inputSideNav]="sideNav"></app-top-nav>
 <mat-drawer-container class="sidenav-container" autosize>
   <mat-drawer #sideNav class="sidenav-drawer" mode="side">
     <div class="center">
@@ -9,7 +11,6 @@
   </mat-drawer>
 
   <div class="sidenav-content">
-    <app-top-nav [inputSideNav]="sideNav"></app-top-nav>
     <router-outlet></router-outlet>
   </div>
 

@@ -12,4 +12,8 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  getRandomImage(): string {
+    return 'url(../assets/img/doMor.jpg)';
+  }
 }

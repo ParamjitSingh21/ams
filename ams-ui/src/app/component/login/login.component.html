@@ -1,24 +1,25 @@
 <mat-card class='login-wrapper' fxlayout>
-  <mat-card-content>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="login"> Log In </div>
-      <mat-form-field class="form-field ">
-        <input matInput formControlName="username" placeholder="Email" required>
-        <!-- <mat-hint>Enter Email</mat-hint> -->
-        <mat-error>
-          Please provide a valid email address
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="form-field">
-        <input matInput type="password" formControlName="password" placeholder="Password" required>
-        <mat-error>
-          Please provide a valid password
-        </mat-error>
-      </mat-form-field>
-      <mat-error *ngIf="loginInvalid">
-        The username and password were not recognized
-      </mat-error>
-      <button mat-raised-button class="btn mt-3">Login</button>
-    </form>
-  </mat-card-content>
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="login"> Log In </div>
+            <mat-form-field class="form-field ">
+                <input matInput formControlName="username" placeholder="Email" required>
+                <!-- <mat-hint>Enter Email</mat-hint> -->
+                <mat-error>
+                    Please provide a valid email address
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-field">
+                <input matInput type="password" formControlName="password" placeholder="Password" required>
+                <mat-error>
+                    Please provide a valid password
+                </mat-error>
+            </mat-form-field>
+            <mat-error *ngIf="loginInvalid">
+                The username and password were not recognized
+            </mat-error>
+            <button mat-raised-button class="btn mt-3">Login</button>
+        </form>
+        <a href="sign-up">Sign Up</a>
+    </mat-card-content>
 </mat-card>

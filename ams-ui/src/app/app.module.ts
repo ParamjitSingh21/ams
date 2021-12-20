@@ -10,10 +10,16 @@ import { TopNavComponent } from './shared-component/top-nav/top-nav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule, } from '@angular/material/form-field';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { IndexComponent } from './component/index/index.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignUpComponent } from './component/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     SideNavComponent,
     TopNavComponent,
-    IndexComponent
+    IndexComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +40,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
   ],
-  providers: [],
+  providers: [MatDatepickerModule,],
   bootstrap: [AppComponent]
 })
 

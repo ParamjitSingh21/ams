@@ -1,4 +1,4 @@
-.example-radio-button {
+.radio-button {
     margin-left: 7px;
     background: #fafafa;
 }
@@ -27,13 +27,15 @@ mat-grid-tile {
     width: 25%;
 }
 
-.login {
+.signup {
     font-weight: 600;
     font-size: 1.4rem;
-    color: #2e393e
+    color: #2e393e;
+    text-align: center;
+    margin: -10px 5px 12px -8px;
 }
 
-.login-wrapper {
+.signup-wrapper {
     max-width: 450px;
     min-height: 300px;
     margin: 40px auto;
@@ -42,7 +44,7 @@ mat-grid-tile {
     box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff
 }
 
-.login-wrapper .form-field input {
+.signup-wrapper .form-field input {
     width: 100%;
     display: block;
     border: none;
@@ -52,11 +54,11 @@ mat-grid-tile {
     color: #666;
 }
 
-.login-wrapper .form-field {
+.signup-wrapper .form-field {
     border-radius: 20px;
 }
 
-.login-wrapper .btn {
+.signup-wrapper .btn {
     box-shadow: none;
     width: 100%;
     background-color: #03A9F4;
@@ -64,4 +66,20 @@ mat-grid-tile {
     border-radius: 25px;
     box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
     letter-spacing: 0.5px
+}
+
+.forgottext {
+    color: #ff4700 !important;
+    padding-left: 10px;
+    float: right;
+}
+
+a {
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+a:hover {
+    color: #000;
+    text-decoration: underline;
 }

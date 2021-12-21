@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { IndexComponent } from './component/index/index.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SignUpComponent } from './component/sign-up/sign-up.component';
     SideNavComponent,
     TopNavComponent,
     IndexComponent,
-    SignUpComponent
+    SignUpComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

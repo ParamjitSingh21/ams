@@ -10,7 +10,8 @@ import { AuthService } from '../auth/auth.service';
 })
 export class SignUpComponent implements OnInit {
 
-  signUpForm: FormGroup;hide= true;
+  signUpForm: FormGroup; 
+  hide = true;
   public signUpInvalid = false;
   startDate = new Date(1990, 0, 1);
   private formSubmitAttempt = false;
@@ -23,28 +24,30 @@ export class SignUpComponent implements OnInit {
     private authService: AuthService
   ) {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/game';
-
     this.signUpForm = this.fb.group({
-      username: ['', Validators.email],
-      password: ['', Validators.required]
+      firstname: ['', Validators.required],
+      surname: ['', Validators.required],
+      email: ['', Validators.required],
+      gender: ['', Validators.required],
+      password: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
     });
   }
 
   ngOnInit(): void {
+    this.signUpForm = this.fb.group({
+      firstname: ['', Validators.required],
+      surname: ['', Validators.required],
+      email: ['', Validators.required],
+      gender: ['', Validators.required],
+      password: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+    });
   }
 
   async onSubmit(): Promise<void> {
-    this.signUpInvalid = false;
-    this.formSubmitAttempt = false;
-    if (this.signUpForm.valid) {
-      try {
-        const username = this.signUpForm.get('username')?.value;
-        const password = this.signUpForm.get('password')?.value;
-      } catch (err) {
-        this.signUpInvalid = true;
-      }
-    } else {
-      this.formSubmitAttempt = true;
-    }
+    
+    console.log(this.signUpForm.value);
+  
   }
 }

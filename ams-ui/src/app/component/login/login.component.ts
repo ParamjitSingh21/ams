@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { CommonService } from '../common-service/common.service';
 
 
 @Component({
@@ -14,26 +15,22 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   public loginInvalid = false;
   private formSubmitAttempt = false;
-  private returnUrl: string;
 
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private commonService: CommonService
   ) {
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/game';
-
+    this.commonService.checkIsAuthencated();
     this.form = this.fb.group({
       username: ['', Validators.email],
-      password: ['', Validators.required]
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
-  async ngOnInit(): Promise<void> {
-    if (await this.authService.checkAuthenticated()) {
-      await this.router.navigate([this.returnUrl]);
-    }
+  ngOnInit(): void {
   }
 
   async onSubmit(): Promise<void> {

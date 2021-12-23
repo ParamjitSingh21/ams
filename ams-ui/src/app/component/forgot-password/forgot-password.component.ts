@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { CommonService } from '../common-service/common.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -12,17 +13,12 @@ export class ForgotPasswordComponent implements OnInit {
 
   form: FormGroup;
   public loginInvalid = false;
-  private formSubmitAttempt = false;
-  private returnUrl: string;
 
   constructor(
     private fb: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
-    private authService: AuthService
+    private commonService: CommonService
   ) {
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/game';
-
+    this.commonService.checkIsAuthencated();
     this.form = this.fb.group({
       username: ['', Validators.email]
     });

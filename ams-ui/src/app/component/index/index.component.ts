@@ -13,12 +13,9 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     const random = Math.floor(Math.random() * 10);
     bgImage = random;
-    console.log(random, 'url(../assets/img/img' + random + '.jpg)');
   }
-
-
+  
   getRandomImage(): string {
-
     return 'url(../assets/img/img' + bgImage + '.jpg)';
   }
 }

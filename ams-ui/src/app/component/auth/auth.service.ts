@@ -1,44 +1,37 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
-import { OktaAuth } from '@okta/okta-auth-js';
-
+import { CookieService } from 'ngx-cookie-service'
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private authClient = new OktaAuth({
-    issuer: 'https://{YourOktaDomain}/oauth2/default',
-    clientId: '{ClientId}'
-  });
-
+  
   public isAuthenticated = new BehaviorSubject<boolean>(false);
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private cookies: CookieService) {
   }
 
   async checkAuthenticated(): Promise<boolean> {
-    const authenticated = await this.authClient.session.exists();
+    const authenticated = this.cookies.check('token');
     this.isAuthenticated.next(authenticated);
     return authenticated;
   }
 
   async login(username: string, password: string): Promise<void> {
-    const transaction = await this.authClient.signIn({ username, password });
+   //do authenication
 
-    if (transaction.status !== 'SUCCESS') {
-      throw Error('We cannot handle the ' + transaction.status + ' status');
-    }
     this.isAuthenticated.next(true);
 
-    this.authClient.session.setCookieAndRedirect(transaction.sessionToken);
+    this.cookies.set("token","paramCookie");
+    await this.router.navigate(['/']);
   }
 
-  async logout(redirect: string): Promise<void> {
+  async logout(): Promise<void> {
     try {
-      await this.authClient.signOut();
+      this.cookies.deleteAll;
       this.isAuthenticated.next(false);
-      await this.router.navigate([redirect]);
+      await this.router.navigate(['/']);
     } catch (err) {
       console.error(err);
     }
